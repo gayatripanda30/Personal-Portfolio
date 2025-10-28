@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="title" content="Gayatri Panda - Portfolio" />
+  <meta name="description" content="Frontend Developer portfolio showcasing projects in e-commerce, healthcare, and task management using HTML, CSS, and JavaScript." />
+  <meta name="keywords" content="Gayatri Panda, Web Developer, Frontend Developer, Portfolio, HTML, CSS, JavaScript" />
+  <meta name="author" content="Gayatri Panda" />
+  <title>Gayatri Panda | Portfolio</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="logo">Gayatri <span>Panda</span></div>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <!-- Mobile Menu Toggle -->
+    <div class="menu-toggle">&#9776;</div>
+  </nav>
+
+  <!-- Sticky Sidebar -->
+  <div class="sidebar">
+    <a href="mailto:pandagayatri413@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.linkedin.com/in/gayatri-panda-072657248" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/gayatripanda30" target="_blank"><i class="fab fa-github"></i></a>
+  </div>
+
+  <!-- Hero Section -->
+<section id="home" class="portfolio-hero">
+  <div class="hero-content">
+    <img src="images/profile.jpg" alt="Profile Picture" class="hero-image">
+    <h1>Hi, I'm <span>Gayatri Panda</span></h1>
+    <h2>Web Developer | MCA Graduate</h2>
+    <p>
+      I'm a passionate Web Developer specializing in <strong>React.js, HTML, CSS, and JavaScript.</strong>
+      I love building responsive, user-friendly websites and continuously learning new technologies.
+    </p>
+    <a href="GAYATRI PANDACV (1).pdf" download class="hero-btn">Download CV</a>
+  </div>
+</section>
+
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>
+        Hi! I’m Gayatri Panda, a passionate Web Developer specializing in creating modern, responsive, and user-friendly websites.
+        I have hands-on experience with HTML, CSS, JavaScript, and React, and I enjoy turning creative ideas into functional web applications.
+        I am committed to writing clean, efficient code and continuously improving my skills to keep up with the latest web technologies.
+        Browse my projects to see my work, and feel free to contact me for collaboration or freelance opportunities.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS SECTION ===== -->
+  <section id="skills" class="skills">
+    <h2>Technical Skills</h2>
+    <ul>
+      <li>React.js</li>
+      <li>HTML5 & CSS3</li>
+      <li>JavaScript (ES6+)</li>
+      <li>Responsive Web Design</li>
+      <li>Git & GitHub</li>
+      <li>API Integration</li>
+    </ul>
+
+    <h2>Soft Skills</h2>
+    <ul>
+      <li>Problem Solving</li>
+      <li>Team Collaboration</li>
+      <li>Creative Thinking</li>
+      <li>Time Management</li>
+      <li>Adaptability</li>
+    </ul>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="projects" id="projects">
+    <h2 class="section-title">Latest Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="images/E-commerace.png" alt="E-commerce Project">
+        <h3>E-commerce</h3>
+        <button onclick="openModal('portfolio1Modal')">View Details</button>
+      </div>
+
+      <div class="project-card">
+        <img src="images/Health-Care.png" alt="Healthcare Project">
+        <h3>Health-Care</h3>
+        <button onclick="openModal('portfolio2Modal')">View Details</button>
+      </div>
+
+      <div class="project-card">
+        <img src="images/TO-DO-List.png" alt="To-do List Project">
+        <h3>To-Do List</h3>
+        <button onclick="openModal('portfolio3Modal')">View Details</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Modals -->
+  <div id="portfolio1Modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('portfolio1Modal')">&times;</span>
+      <h2>🛒 E-commerce Website</h2>
+      <p>
+        <strong>Description:</strong> A responsive e-commerce website where users can browse products, add items to the cart, and simulate a checkout process.<br><br>
+        <strong>Features:</strong> Product listing & search, Add to cart functionality, Responsive design for all devices.<br><br>
+        <strong>Tech Used:</strong> HTML, CSS, JavaScript.
+      </p>
+    </div>
+  </div>
+
+  <div id="portfolio2Modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('portfolio2Modal')">&times;</span>
+      <h2>🏥 Healthcare Management System</h2>
+      <p>
+        <strong>Description:</strong> A healthcare system for booking appointments and managing patient-doctor interactions.<br><br>
+        <strong>Features:</strong> Appointment booking, Patient management, Medical reports upload.<br><br>
+        <strong>Tech Used:</strong> HTML, CSS, JavaScript.
+      </p>
+    </div>
+  </div>
+
+  <div id="portfolio3Modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('portfolio3Modal')">&times;</span>
+      <h2>✅ To-do List App</h2>
+      <p>
+        <strong>Description:</strong> A simple to-do list web app for organizing daily tasks with a responsive interface.<br><br>
+        <strong>Features:</strong> Add, edit, delete, and mark tasks as completed.<br><br>
+        <strong>Tech Used:</strong> HTML, CSS, JavaScript.
+      </p>
+    </div>
+  </div>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact" class="contact">
+    <h2>Contact / Connect</h2>
+    <ul>
+      <li><strong>Email:</strong> pandagayatri413@gmail.com</li>
+      <li><strong>LinkedIn:</strong> <a href="#">https://www.linkedin.com/in/gayatri-panda-072657248</a></li>
+      <li><strong>GitHub:</strong> <a href="#">https://github.com/gayatripanda30</a></li>
+      
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Gayatri Panda | All Rights Reserved</p>
+  </footer>
+ <!-- External JS -->
+  <script src="script.js"></script>
+
+</body>
+</html>
