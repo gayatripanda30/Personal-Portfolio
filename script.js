@@ -1,37 +1,46 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ===== Modal Functions =====
+  // ===== MODAL HANDLING =====
   function openModal(id) {
-    document.getElementById(id).style.display = "flex";
+    const modal = document.getElementById(id);
+    if (modal) modal.style.display = "flex";
   }
 
   function closeModal(id) {
-    document.getElementById(id).style.display = "none";
+    const modal = document.getElementById(id);
+    if (modal) modal.style.display = "none";
   }
 
-  window.onclick = function (e) {
+  // Make modal functions accessible globally (for inline button onclick)
+  window.openModal = openModal;
+  window.closeModal = closeModal;
+
+  // Close modal when clicking outside content
+  window.addEventListener("click", (e) => {
     document.querySelectorAll(".modal").forEach((modal) => {
       if (e.target === modal) modal.style.display = "none";
     });
-  };
+  });
 
-  // ===== Mobile Menu Toggle =====
+  // ===== MOBILE MENU TOGGLE =====
   const menuToggle = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector(".nav-links");
 
-  menuToggle.addEventListener("click", () => {
-    menuToggle.classList.toggle("active");
-    navLinks.classList.toggle("active");
-  });
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      menuToggle.classList.toggle("active");
+      navLinks.classList.toggle("active");
+    });
+  }
 
-  // ===== Section Fade-in Animation =====
+  // ===== SECTION FADE-IN ANIMATION =====
   const sections = document.querySelectorAll("section");
   const observer = new IntersectionObserver(
-    (entries, observer) => {
+    (entries, obs) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.style.opacity = "1";
           entry.target.style.transform = "translateY(0)";
-          observer.unobserve(entry.target);
+          obs.unobserve(entry.target);
         }
       });
     },
@@ -45,23 +54,25 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(section);
   });
 
-  // ===== Navbar Scroll Blur Effect =====
+  // ===== NAVBAR SCROLL EFFECT =====
+  const navbar = document.querySelector(".navbar");
   window.addEventListener("scroll", () => {
-    const navbar = document.querySelector(".navbar");
-    navbar.classList.toggle("scrolled", window.scrollY > 50);
+    if (navbar) {
+      navbar.classList.toggle("scrolled", window.scrollY > 50);
+    }
   });
 
-  // ===== Active Nav Link Highlight on Scroll =====
+  // ===== ACTIVE NAV LINK ON SCROLL =====
   const navLinksEls = document.querySelectorAll(".nav-links a");
   const sectionsEls = document.querySelectorAll("section[id]");
 
   window.addEventListener("scroll", () => {
-    let scrollY = window.scrollY + window.innerHeight / 3;
+    const scrollY = window.scrollY + window.innerHeight / 3;
 
     sectionsEls.forEach((sec) => {
-      let sectionTop = sec.offsetTop;
-      let sectionHeight = sec.offsetHeight;
-      let sectionId = sec.getAttribute("id");
+      const sectionTop = sec.offsetTop;
+      const sectionHeight = sec.offsetHeight;
+      const sectionId = sec.getAttribute("id");
 
       if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
         navLinksEls.forEach((link) => {
@@ -74,15 +85,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ===== Highlight Nav on Click =====
+  // ===== SMOOTH SCROLL + ACTIVE LINK ON CLICK =====
   navLinksEls.forEach((link) => {
     link.addEventListener("click", (e) => {
-      e.preventDefault(); // stop jump
+      e.preventDefault();
       const targetId = link.getAttribute("href");
       const targetSection = document.querySelector(targetId);
 
       if (targetSection) {
-        // Smooth scroll
         targetSection.scrollIntoView({ behavior: "smooth" });
       }
 
@@ -90,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
       navLinks.classList.remove("active");
       menuToggle.classList.remove("active");
 
-      // Update active link color
+      // Update active link state
       navLinksEls.forEach((l) => l.classList.remove("active"));
       link.classList.add("active");
     });
